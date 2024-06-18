@@ -152,3 +152,43 @@ Customer <|-- Order
 Order <|-- OrderItem
 Measurer <|-- Order
 ```
+# UML - Прохождение онлай-курсов по программированию:
+```mermaid
+classDiagram
+class Course {
+  +String Name
+  +String Description
+  +Decimal Price
+  +String Level
+  +String Language
+}
+
+class Student {
+  +String Name
+  +String Email
+  +String Address
+}
+
+class Enrollment {
+  +Int ID
+  +Student Student
+  +Course Course
+  +String PaymentMethod
+  +String Statuses
+  +DateTime Date/Time
+}
+
+class CourseProgress {
+  +Int ID
+  +Enrollment Enrollment
+  +Int ProgressPercentage
+  +DateTime LastAccessed
+}
+
+CourseProgress .. Enrollment
+Enrollment .. Student
+Enrollment ..> CourseProgress
+Course <|-- Enrollment
+Student <|-- Enrollment
+Enrollment <|-- CourseProgress
+```
