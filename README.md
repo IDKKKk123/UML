@@ -192,3 +192,51 @@ Course <|-- Enrollment
 Student <|-- Enrollment
 Enrollment <|-- CourseProgress
 ```
+# UML - Заказ такси через мобильое приложение:
+```mermaid
+classDiagram
+class TaxiCompany {
+  +String Name
+  +String Address
+  +String Phone
+  +String Website
+}
+
+class Driver {
+  +String Name
+  +String Phone
+  +String CarModel
+  +String CarNumber
+}
+
+class Customer {
+  +String Name
+  +String Phone
+  +String Address
+}
+
+class Ride {
+  +Int ID
+  +Customer Customer
+  +Driver Driver
+  +String PickupLocation
+  +String DropoffLocation
+  +Decimal Fare
+  +String PaymentMethod
+  +String Status
+  +DateTime RequestTime
+  +DateTime PickupTime
+  +DateTime DropoffTime
+}
+
+class CarType {
+  +String Type
+  +Decimal BaseFare
+  +Decimal PerKmFare
+}
+
+Driver <|-- CarType
+TaxiCompany <|-- Driver
+Customer <|-- Ride
+Ride ..> Driver
+```
